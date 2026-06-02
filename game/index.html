@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <meta name="theme-color" content="#0a0a1a">
+  <title>Car Parking</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div id="hud-bar">
+    <div class="hud-left">
+      <span class="hud-title">🚗 CAR PARKING</span>
+    </div>
+    <div class="hud-right">
+      <span class="hud-item" onclick="if(window.ShopUI)ShopUI.showTab('upgrades')"><span>⚡</span></span>
+      <span class="hud-item"><span>🪙</span> <span id="hud-coins">100</span></span>
+      <span class="hud-item"><span>💎</span> <span id="hud-gems">0</span></span>
+    </div>
+  </div>
+
+  <div id="game-container">
+    <div id="level-info">
+      <div class="label">Level</div>
+      <div class="value" id="level-value">1</div>
+    </div>
+    <div id="timer-display">
+      <div class="label">Time</div>
+      <div class="value" id="timer-value">30</div>
+    </div>
+    <div id="score-display">
+      <div class="label">Score</div>
+      <div class="value" id="score-value">0</div>
+    </div>
+    <div id="collision-count">
+      <div class="label">Collisions</div>
+      <div class="value" id="collision-value">0</div>
+    </div>
+
+    <canvas id="game-canvas"></canvas>
+
+    <div id="button-bar">
+      <div class="ctrl-grid">
+        <button class="ctrl-btn up" id="btn-up">⬆️</button>
+        <button class="ctrl-btn left" id="btn-left">⬅️</button>
+        <button class="ctrl-btn down" id="btn-down">⬇️</button>
+        <button class="ctrl-btn right" id="btn-right">➡️</button>
+      </div>
+    </div>
+
+    <div id="bottom-bar" style="display:flex;gap:6px;margin-top:8px;">
+      <button class="game-btn btn-primary" id="play-btn" style="padding:6px 12px;font-size:11px;">▶ Play</button>
+      <button class="game-btn btn-shop" id="shop-btn" style="padding:6px 12px;font-size:11px;">🛒 Shop</button>
+      <button class="game-btn btn-upgrade" onclick="if(window.ShopUI){ShopUI.open();ShopUI.showTab('upgrades')}" style="padding:6px 12px;font-size:11px;">⚡ Upgrade</button>
+    </div>
+  </div>
+
+  <div class="game-over-box" id="game-over-box">
+    <h2>⏰ Time's Up!</h2>
+    <p style="color:var(--text-secondary);margin-bottom:12px;">Better luck next time!</p>
+    <div class="btn-group">
+      <button class="game-btn btn-primary" id="restart-btn">🔁 Retry</button>
+    </div>
+  </div>
+
+  <div class="level-complete-box" id="level-complete-box">
+    <h2>🚗 Parked!</h2>
+    <div class="rating-text" id="rating-text">★★★★★</div>
+    <div class="final-score" id="complete-score">Score: 0</div>
+    <div style="margin:8px 0;color:var(--accent-gold);font-size:18px;" id="reward-display">+50 🪙</div>
+    <div class="btn-group">
+      <button class="game-btn btn-win" id="next-level-btn">▶ Next Level</button>
+    </div>
+  </div>
+
+  <div id="notification"></div>
+
+  <script src="visuals.js"></script>
+  <script src="progression.js"></script>
+  <script src="shop.js"></script>
+  <script src="ads-manager.js"></script>
+  <script src="challenges-system.js"></script>
+  <script src="store-rotator.js"></script>
+  <script src="retention-system.js"></script>
+  <script src="collectibles-system.js"></script>
+  <script src="tutorial-system.js"></script>
+  <script src="game.js"></script>
+</body>
+</html>
